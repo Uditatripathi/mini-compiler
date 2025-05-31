@@ -9,6 +9,7 @@ class BinOp(AST):
         self.left = left
         self.token = self.op = op
         self.right = right
+        
 
 class UnaryOp(AST):
     def __init__(self, op, expr):
@@ -94,7 +95,7 @@ class Parser:
         type_node = Type(self.current_token)  # void, int, etc.
         self.eat(self.current_token.type)
 
-        name = self.current_token.value  # function name
+        name = self.current_token.value  
         self.eat('ID')
 
         self.eat('LPAREN')
@@ -111,7 +112,7 @@ class Parser:
 
         root = Compound()
         for node in nodes:
-            if node is not None:  # Skip None nodes
+            if node is not None:  
                 root.children.append(node)
 
         return root
@@ -130,7 +131,7 @@ class Parser:
             if node is not None:  # Skip None nodes
                 nodes.append(node)
             
-            # After a compound statement (block), we don't expect a semicolon
+            
             if isinstance(node, (If, While, Compound)):
                 continue
                 
