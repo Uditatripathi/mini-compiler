@@ -1,6 +1,7 @@
 from lexer import Token
 
 class AST:
+    
     pass
 
 class BinOp(AST):
@@ -295,6 +296,7 @@ class Parser:
             node = self.variable()
             return node
 
+    
     def printf_statement(self):
         """printf_statement : PRINTF LPAREN STRING_CONST (COMMA expr)* RPAREN"""
         self.eat('PRINTF')
@@ -310,6 +312,7 @@ class Parser:
         self.eat('RPAREN')
         return Printf(format_str, args)
 
+    
     def parse(self):
         node = self.program()
         if self.current_token.type != 'EOF':
