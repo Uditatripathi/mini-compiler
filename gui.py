@@ -7,7 +7,7 @@ import os
 from tkinter.font import Font
 import re
 
-# Modern color scheme
+#  color scheme
 THEME = {
     'bg_primary': '#FFFFFF',    # White background
     'bg_secondary': '#F5F5F5',  # Light gray background
@@ -138,7 +138,7 @@ class LineNumberedText(tk.Frame):
         self.line_numbers.config(state='disabled')
 
     def highlight_syntax(self):
-        # Remove existing tags
+        # Remove existing tag
         for tag in self.text.tag_names():
             self.text.tag_remove(tag, "1.0", tk.END)
 
